@@ -1,0 +1,5 @@
+1.configure terminal
+2. router rip
+3. network 192.168.x.x (self group)
+4.network 192.168.x.x (other group)
+5.network 192.168.x.x (router group)

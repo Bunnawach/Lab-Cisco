@@ -1,0 +1,7 @@
+1. config terminal
+2. interface FastEthernet x/x
+3. switchport mode access
+4. switchport access vlan (number vlan)
+5. no shutdown
+6. exit 
+7. show vlan for check
