@@ -48,28 +48,23 @@
 5. เปิด Router Interface: `no shutdown`
 6. ทดสอบ ping ระหว่าง PC0 และ PC1
 
-### Lab 2: Router Configuration Practice
-ฝึกการตั้งค่า Router:
-1. เข้าสู่ Privileged Mode: `enable`
-2. เข้าสู่ Configuration Mode: `configure terminal`
-3. ตั้งค่า Interface: `interface FastEthernet 0/0`
-4. ตั้งค่า IP: `ip address 192.168.1.1 255.255.255.0`
-5. เปิด Interface: `no shutdown`
-6. ตรวจสอบ: `show ip interface brief`
-
-## คำสั่งที่ควรจำ
+### Lab 2: การตั้งค่าคำสั่งพื้นฐานและเปิด Interface บน Router
+1. คลิกที่ตัว **Router0** -> ไปที่แท็บ **CLI** (Command Line Interface)
+2. เมื่อระบบถามว่า `Would you like to enter the initial configuration dialog? [yes/no]:` ให้พิมพ์ **`no`** แล้วกด **Enter** (หากไม่ขึ้น ให้กด Enter 1-2 ครั้งจนเจอคำว่า `Router>`)
+3. พิมพ์คำสั่งตามลำดับดังต่อไปนี้:
 
 ```
-enable                          # เข้าสู่ privileged mode
-configure terminal              # เข้าสู่ configuration mode
-interface FastEthernet 0/0      # เลือก interface
-ip address [IP] [Subnet]         # ตั้งค่า IP
-no shutdown                     # เปิดใช้งาน interface
-exit                            # ออกจาก mode ปัจจุบัน
-show ip interface brief         # ดูสถานะ interface
-ping [IP]                       # ทดสอบการเชื่อมต่อ
+Router> enable                                 # เข้าสู่ Privileged Mode
+Router# configure terminal                     # เข้าสู่ Global Configuration Mode
+Router(config)# interface FastEthernet 0/0     # เลือกพอร์ต Fa0/0 ที่เชื่อมต่อกับ Switch
+Router(config-if)# ip address 192.168.1.1 255.255.255.0   # ตั้งค่า IP และ Subnet Mask
+Router(config-if)# no shutdown                 # สั่งเปิดใช้งานพอร์ต (สถานะไฟที่สายจะเปลี่ยนจากแดงเป็นเขียว)
+Router(config-if)# exit                        # ออกจากโหมดพอร์ต
+Router(config)# exit                           # ออกจากโหมดคอนฟิก
 ```
+ตรวจสอบสถานะพอร์ต: พิมพ์คำสั่งตรวจสอบความถูกต้องเพื่อดูว่าพอร์ตเปิดใช้งานจริงหรือไม่
+`Router# show ip interface brief`
 
-## เอกสารเพิ่มเติม
-ดูไฟล์ `docs/introduction.txt` สำหรับคำสั่งและขั้นตอนโดยละเอียด
+สังเกตที่บรรทัด FastEthernet0/0 ช่อง Status จะต้องเป็น up และ Protocol จะต้องเป็น up
+
 
