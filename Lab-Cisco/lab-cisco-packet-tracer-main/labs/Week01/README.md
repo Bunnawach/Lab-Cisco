@@ -34,8 +34,8 @@
 ### Lab 1: Basic Network Setup
 สร้าง network พื้นฐานที่มี:
 - 2 PCs
-- 1 Switch
-- 1 Router
+- 1 Switch 2960
+- 1 Router 2911
 
 **ขั้นตอน:**
 1. เพิ่มอุปกรณ์: 2 PCs, 1 Switch, 1 Router
